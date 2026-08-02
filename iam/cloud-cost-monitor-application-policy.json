@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "ReadCostExplorerData",
+      "Effect": "Allow",
+      "Action": [
+        "ce:GetCostAndUsage",
+        "ce:GetCostForecast"
+      ],
+      "Resource": "*"
+    },
+    {
+      "Sid": "UploadDashboardToS3",
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject"
+      ],
+      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*"
+    },
+    {
+      "Sid": "PublishCostAlertToSNS",
+      "Effect": "Allow",
+      "Action": [
+        "sns:Publish"
+      ],
+      "Resource": "arn:aws:sns:us-east-1:YOUR_ACCOUNT_ID:cloud-cost-alerts"
+    }
+  ]
+}

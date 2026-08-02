@@ -1,0 +1,13 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": "lambda:InvokeFunction",
+      "Resource": [
+        "arn:aws:lambda:us-east-1:YOUR_ACCOUNT_ID:function:cloud-cost-report-generator",
+        "arn:aws:lambda:us-east-1:YOUR_ACCOUNT_ID:function:cloud-cost-report-generator:*"
+      ]
+    }
+  ]
+}

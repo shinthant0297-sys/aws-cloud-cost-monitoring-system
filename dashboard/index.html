@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>AWS Cloud Cost Dashboard</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background: #f3f6fa;
+            color: #1f2937;
+            font-family:
+                Arial,
+                Helvetica,
+                sans-serif;
+        }
+
+        .header {
+            padding: 36px 20px;
+            background:
+                linear-gradient(
+                    135deg,
+                    #152939,
+                    #232f3e
+                );
+            color: white;
+            text-align: center;
+        }
+
+        .header h1 {
+            margin: 0 0 10px;
+            font-size: 32px;
+        }
+
+        .header p {
+            margin: 4px 0;
+            color: #d6e1eb;
+        }
+
+        .aws-orange {
+            color: #ff9900;
+        }
+
+        .container {
+            width: min(1180px, 94%);
+            margin: 30px auto;
+        }
+
+        .summary-grid {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .summary-card {
+            padding: 22px;
+            background: white;
+            border-radius: 12px;
+            box-shadow:
+                0 4px 14px rgba(0, 0, 0, 0.07);
+        }
+
+        .summary-label {
+            margin-bottom: 12px;
+            color: #6b7280;
+            font-size: 14px;
+        }
+
+        .summary-value {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .summary-period {
+            margin-top: 10px;
+            color: #6b7280;
+            font-size: 12px;
+        }
+
+        .section {
+            margin-bottom: 30px;
+            padding: 24px;
+            background: white;
+            border-radius: 12px;
+            box-shadow:
+                0 4px 14px rgba(0, 0, 0, 0.07);
+        }
+
+        .section h2 {
+            margin-top: 0;
+            color: #232f3e;
+        }
+
+        .alert-card {
+            margin-bottom: 12px;
+            padding: 16px;
+            background: #fff7ed;
+            border-left: 5px solid #f97316;
+            border-radius: 8px;
+        }
+
+        .success-card {
+            padding: 16px;
+            background: #ecfdf5;
+            color: #047857;
+            border-left: 5px solid #10b981;
+            border-radius: 8px;
+        }
+
+        .alert-service {
+            font-weight: bold;
+        }
+
+        .alert-amount {
+            margin-top: 6px;
+            color: #dc2626;
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        .alert-detail {
+            margin-top: 6px;
+            color: #6b7280;
+            font-size: 13px;
+        }
+
+        .table-wrapper {
+            overflow-x: auto;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th,
+        td {
+            padding: 14px 12px;
+            border-bottom: 1px solid #e5e7eb;
+            text-align: right;
+            white-space: nowrap;
+        }
+
+        th:first-child,
+        td:first-child {
+            text-align: left;
+        }
+
+        th {
+            background: #f8fafc;
+            color: #374151;
+        }
+
+        tr:hover {
+            background: #f9fafb;
+        }
+
+        .increase {
+            color: #dc2626;
+            font-weight: bold;
+        }
+
+        .decrease {
+            color: #059669;
+            font-weight: bold;
+        }
+
+        .neutral {
+            color: #6b7280;
+        }
+
+        .footer {
+            padding: 24px;
+            color: #6b7280;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 25px;
+            }
+
+            .container {
+                width: 96%;
+            }
+
+            .section {
+                padding: 16px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <h1>
+            <span class="aws-orange">AWS</span>
+            Cloud Cost Dashboard
+        </h1>
+
+        <p>Serverless Cost Monitoring System</p>
+        <p>Generated: 2026-07-28 23:31:31 JST</p>
+    </header>
+
+    <main class="container">
+        <section class="summary-grid">
+            <div class="summary-card">
+                <div class="summary-label">
+                    Current 7-Day Cost
+                </div>
+
+                <div class="summary-value">
+                    $0.1206
+                </div>
+
+                <div class="summary-period">
+                    2026-07-21 to 2026-07-27
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-label">
+                    Previous 7-Day Cost
+                </div>
+
+                <div class="summary-value">
+                    $0.0000
+                </div>
+
+                <div class="summary-period">
+                    2026-07-14 to 2026-07-20
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-label">
+                    Weekly Difference
+                </div>
+
+                <div class="summary-value
+                    increase">
+                    $0.1206
+                </div>
+
+                <div class="summary-period">
+                    Current period minus previous period
+                </div>
+            </div>
+
+            <div class="summary-card">
+                <div class="summary-label">
+                    Month-to-Date Cost
+                </div>
+
+                <div class="summary-value">
+                    $0.1307
+                </div>
+
+                <div class="summary-period">
+                    2026-07-01 to 2026-07-27
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Services With Increased Costs</h2>
+            
+            <div class="alert-card">
+                <div class="alert-service">
+                    AWS Cost Explorer
+                </div>
+
+                <div class="alert-amount">
+                    +$0.1200
+                </div>
+
+                <div class="alert-detail">
+                    Current: $0.1200
+                    &nbsp;|&nbsp;
+                    Previous: $0.0000
+                </div>
+            </div>
+            
+
+            <div class="alert-card">
+                <div class="alert-service">
+                    Amazon Simple Storage Service
+                </div>
+
+                <div class="alert-amount">
+                    +$0.0006
+                </div>
+
+                <div class="alert-detail">
+                    Current: $0.0006
+                    &nbsp;|&nbsp;
+                    Previous: $0.0000
+                </div>
+            </div>
+            
+        </section>
+
+        <section class="section">
+            <h2>Service Cost Comparison</h2>
+
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>AWS Service</th>
+                            <th>Current 7 Days</th>
+                            <th>Previous 7 Days</th>
+                            <th>Difference</th>
+                            <th>Change</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        
+            <tr>
+                <td>AWS Cost Explorer</td>
+                <td>$0.1200</td>
+                <td>$0.0000</td>
+                <td class="increase">
+                    $0.1200
+                </td>
+                <td class="increase">
+                    New cost
+                </td>
+            </tr>
+            
+
+            <tr>
+                <td>Amazon Simple Storage Service</td>
+                <td>$0.0006</td>
+                <td>$0.0000</td>
+                <td class="increase">
+                    $0.0006
+                </td>
+                <td class="increase">
+                    +1931.23%
+                </td>
+            </tr>
+            
+
+            <tr>
+                <td>Amazon Simple Notification Service</td>
+                <td>$0.0000</td>
+                <td>$0.0000</td>
+                <td class="neutral">
+                    $0.0000
+                </td>
+                <td class="neutral">
+                    +0.00%
+                </td>
+            </tr>
+            
+
+            <tr>
+                <td>AWS Key Management Service</td>
+                <td>$0.0000</td>
+                <td>$0.0000</td>
+                <td class="neutral">
+                    $0.0000
+                </td>
+                <td class="neutral">
+                    +0.00%
+                </td>
+            </tr>
+            
+
+            <tr>
+                <td>AWS Glue</td>
+                <td>$0.0000</td>
+                <td>$0.0000</td>
+                <td class="neutral">
+                    $0.0000
+                </td>
+                <td class="neutral">
+                    +0.00%
+                </td>
+            </tr>
+            
+
+            <tr>
+                <td>Amazon Simple Queue Service</td>
+                <td>$0.0000</td>
+                <td>$0.0000</td>
+                <td class="neutral">
+                    $0.0000
+                </td>
+                <td class="neutral">
+                    +0.00%
+                </td>
+            </tr>
+            
+
+            <tr>
+                <td>AmazonCloudWatch</td>
+                <td>$0.0000</td>
+                <td>$0.0000</td>
+                <td class="neutral">
+                    $0.0000
+                </td>
+                <td class="neutral">
+                    +0.00%
+                </td>
+            </tr>
+            
+
+            <tr>
+                <td>AWS X-Ray</td>
+                <td>$0.0000</td>
+                <td>$0.0000</td>
+                <td class="neutral">
+                    $0.0000
+                </td>
+                <td class="neutral">
+                    +0.00%
+                </td>
+            </tr>
+            
+
+            <tr>
+                <td>AWS Lambda</td>
+                <td>$0.0000</td>
+                <td>$0.0000</td>
+                <td class="neutral">
+                    $0.0000
+                </td>
+                <td class="neutral">
+                    +0.00%
+                </td>
+            </tr>
+            
+                    </tbody>
+                </table>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        Dashboard generated by AWS Lambda and Cost Explorer.
+        Region: us-east-1
+    </footer>
+</body>
+</html>
