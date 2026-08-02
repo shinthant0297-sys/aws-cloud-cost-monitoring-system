@@ -1,0 +1,31 @@
+# Python generated files
+__pycache__/
+*.py[cod]
+
+# Environment variables and credentials
+.env
+.env.*
+credentials
+credentials.csv
+*.pem
+*.key
+
+# AWS SAM generated files
+.aws-sam/
+
+# Terraform generated files
+.terraform/
+*.tfstate
+*.tfstate.*
+
+# Editor settings
+.vscode/
+.idea/
+
+# Operating system generated files
+.DS_Store
+Thumbs.db
+
+# Temporary and log files
+*.tmp
+*.log
