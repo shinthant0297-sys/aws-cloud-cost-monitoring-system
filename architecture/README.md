@@ -14,7 +14,9 @@ flowchart TD
     S3 -->|Static website| DASH["Cost Dashboard"]
     LF -->|Execution logs| CW["Amazon CloudWatch Logs"]
 ```
+## Architecture Diagram
 
+![AWS Cloud Cost Monitoring Architecture](architecture-diagram.png)
 ## AWS Services
 
 | Service | Responsibility |
