@@ -16,6 +16,9 @@ flowchart TD
     S3 -->|静的ウェブサイト| DASH["料金ダッシュボード"]
     LF -->|実行ログ| CW["Amazon CloudWatch Logs"]
 ```
+## アーキテクチャ図
+
+![AWSコスト監視システムのアーキテクチャ](architecture-diagram.png)
 
 ## 使用する AWS サービス
 
