@@ -40,18 +40,18 @@ flowchart TD
 
 [詳しいアーキテクチャ資料を見る](architecture/README.ja.md)
 
-## 使用する AWS サービス
+## 使用した AWS サービス
 
-| サービス | 目的 |
-|---|---|
-| AWS Cost Explorer | 現在と過去の AWS コストデータを取得します |
-| AWS Lambda | コストデータを処理し、自動レポートを作成します |
-| Amazon S3 | 静的クラウドコストダッシュボードをホストします |
-| Amazon SNS | コストレポートと予算通知をメールで送ります |
-| EventBridge Scheduler | 設定したスケジュールで Lambda 関数を自動実行します |
-| AWS Budgets | 利用料金のしきい値を監視し、アラートを送ります |
-| Amazon CloudWatch Logs | 監視と問題解決のために Lambda の実行ログを保存します |
-| AWS IAM | AWS リソースに最小権限を設定します |
+| サービス | このプロジェクトでの役割 |
+| --- | --- |
+| AWS Cost Explorer | 指定した期間の利用料金を、AWSサービスごとに取得します |
+| AWS Lambda | 利用料金のデータを整理し、HTMLダッシュボードと週次レポートを作成します |
+| Amazon S3 | 作成したHTMLダッシュボードを保存し、Web上で表示します |
+| Amazon SNS | 週次レポートと予算に関する通知をメールで送信します |
+| Amazon EventBridge Scheduler | 毎週、決められた時間にLambda関数を自動で実行します |
+| AWS Budgets | 月間予算の利用状況を確認し、使用率が50％、80％、100％を超えたときに通知します |
+| Amazon CloudWatch Logs | Lambdaの実行記録を保存し、動作状況やエラーを確認するために使用します |
+| AWS Identity and Access Management（IAM） | LambdaやSchedulerに、必要な操作だけを許可します |
 
 
 ## リポジトリ構成

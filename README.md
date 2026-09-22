@@ -40,31 +40,18 @@ flowchart TD
 
 [View detailed architecture documentation](architecture/README.md)
 
-## AWS Services
+## AWS Services Used
 
-| Service | Purpose |
-|---|---|
-| AWS Cost Explorer | Retrieves current and previous AWS cost data |
-| AWS Lambda | Processes cost data and generates automated reports |
-| Amazon S3 | Hosts the static cloud cost dashboard |
-| Amazon SNS | Sends cost reports and budget notifications by email |
-| EventBridge Scheduler | Invokes the Lambda function automatically on schedule |
-| AWS Budgets | Monitors spending thresholds and triggers alerts |
-| Amazon CloudWatch Logs | Stores Lambda execution logs for monitoring and troubleshooting |
-| AWS IAM | Provides least-privilege permissions for AWS resources |
-
-## AWS Services
-
-| Service | Purpose |
+| Service | Role in This Project |
 | --- | --- |
-| AWS Lambda | Retrieves cost data, compares periods, and generates the report |
-| AWS Cost Explorer | Supplies cost and usage data grouped by service |
-| Amazon S3 | Stores and hosts the generated HTML dashboard |
+| AWS Cost Explorer | Retrieves AWS service costs for a specified period |
+| AWS Lambda | Processes cost data and generates the HTML dashboard and weekly report |
+| Amazon S3 | Stores the generated HTML dashboard and makes it available on the web |
 | Amazon SNS | Sends weekly reports and budget notifications by email |
-| Amazon EventBridge Scheduler | Invokes the Lambda function every week |
-| AWS Budgets | Monitors the monthly budget at multiple thresholds |
-| Amazon CloudWatch Logs | Records execution details and errors |
-| AWS IAM | Applies least-privilege permissions to Lambda and Scheduler |
+| Amazon EventBridge Scheduler | Automatically invokes the Lambda function at a scheduled time every week |
+| AWS Budgets | Monitors monthly budget usage and sends notifications when usage exceeds 50%, 80%, or 100% |
+| Amazon CloudWatch Logs | Stores Lambda execution logs for checking system activity and errors |
+| AWS Identity and Access Management (IAM) | Grants Lambda and EventBridge Scheduler only the permissions required for their tasks |
 
 ## Repository Structure
 
