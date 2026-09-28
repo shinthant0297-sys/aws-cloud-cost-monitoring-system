@@ -31,6 +31,7 @@ flowchart TD
 | Amazon SNS | 作成した料金レポートを、登録済みのメールアドレスへ送信します。 |
 | Amazon S3 | 作成した `index.html` を保存し、静的ウェブサイトとして公開します。 |
 | Amazon CloudWatch Logs | Lambda の実行結果やエラーを記録し、確認や問題解決に使用します。 |
+| AWS Budgets | 実際の利用料金が月間予算の50％・80％を超えた場合と、予想料金が100％を超える見込みの場合に、Amazon SNSを通じて通知します。 |
 | AWS IAM | Lambda がほかの AWS サービスを使うために必要な権限だけを設定します。 |
 
 ## 処理の流れ
@@ -47,6 +48,8 @@ flowchart TD
 6. Lambda は料金のまとめを SNS トピックへ送信します。
 7. SNS は登録を確認したメールアドレスへレポートを送信します。
 8. CloudWatch Logs は Lambda の実行ログを保存します。
+
+これとは別に、AWS Budgetsは設定した金額を超えた場合、SNSを通じてメールで通知します。
 
 ## IAM 権限
 
