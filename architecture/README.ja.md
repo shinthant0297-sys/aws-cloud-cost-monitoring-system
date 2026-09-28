@@ -8,13 +8,14 @@
 
 ```mermaid
 flowchart TD
-    EB["Amazon EventBridge Scheduler"] -->|決まった時間に実行| LF["AWS Lambda"]
+    EB["Amazon EventBridge Scheduler"] -->|定期実行| LF["AWS Lambda"]
     LF -->|料金データを取得| CE["AWS Cost Explorer"]
-    LF -->|レポートを送信| SNS["Amazon SNS"]
-    SNS -->|メール通知| USER["メール受信者"]
-    LF -->|index.html をアップロード| S3["Amazon S3"]
-    S3 -->|静的ウェブサイト| DASH["料金ダッシュボード"]
+    LF -->|週次レポートを送信| SNS["Amazon SNS"]
+    LF -->|index.htmlをアップロード| S3["Amazon S3"]
     LF -->|実行ログ| CW["Amazon CloudWatch Logs"]
+    B["AWS Budgets"] -->|予算アラート| SNS
+    SNS -->|メール通知| USER["受信者"]
+    S3 -->|Web上で表示| DASH["料金ダッシュボード"]
 ```
 ## アーキテクチャ図
 
