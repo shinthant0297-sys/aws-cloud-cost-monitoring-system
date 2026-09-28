@@ -28,6 +28,7 @@ flowchart TD
 | Amazon SNS | Sends the generated cost report to a confirmed email subscriber. |
 | Amazon S3 | Stores and hosts the generated `index.html` dashboard. |
 | Amazon CloudWatch Logs | Records Lambda execution details, results, and errors for monitoring and troubleshooting. |
+| AWS Budgets | Sends budget alerts through Amazon SNS when actual costs exceed 50% or 80%, or forecasted costs exceed 100% of the monthly budget. |
 | AWS IAM | Grants the Lambda function only the permissions required to access the other services. |
 
 ## Execution Flow
@@ -44,6 +45,8 @@ flowchart TD
 6. Lambda publishes a summary message to the SNS topic.
 7. SNS sends the report to the confirmed email subscriber.
 8. CloudWatch Logs stores the Lambda execution logs for verification and troubleshooting.
+   
+Separately, AWS Budgets sends threshold alerts to the SNS topic, which delivers them by email.
 
 ## IAM Permissions
 
