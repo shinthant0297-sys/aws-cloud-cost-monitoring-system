@@ -2,6 +2,8 @@
 
 This document describes the architecture of the **AWS Cloud Cost Monitoring and Alert System**. The system automatically collects AWS cost data, generates a static HTML dashboard, and sends a cost summary by email.
 
+This architecture was built and tested for learning purposes. The AWS resources used for testing have since been deleted.
+
 ## Architecture Overview
 
 ```mermaid
