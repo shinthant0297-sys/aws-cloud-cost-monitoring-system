@@ -4,26 +4,13 @@
     {
       "Sid": "ReadCostExplorerData",
       "Effect": "Allow",
-      "Action": [
-        "ce:GetCostAndUsage",
-        "ce:GetCostForecast"
-      ],
+      "Action": "ce:GetCostAndUsage",
       "Resource": "*"
     },
     {
-      "Sid": "UploadDashboardToS3",
+      "Sid": "PublishWeeklyReportToSNS",
       "Effect": "Allow",
-      "Action": [
-        "s3:PutObject"
-      ],
-      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*"
-    },
-    {
-      "Sid": "PublishCostAlertToSNS",
-      "Effect": "Allow",
-      "Action": [
-        "sns:Publish"
-      ],
+      "Action": "sns:Publish",
       "Resource": "arn:aws:sns:us-east-1:YOUR_ACCOUNT_ID:cloud-cost-alerts"
     }
   ]
