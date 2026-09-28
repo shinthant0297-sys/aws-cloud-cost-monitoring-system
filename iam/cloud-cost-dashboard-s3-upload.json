@@ -7,7 +7,7 @@
       "Action": [
         "s3:PutObject"
       ],
-      "Resource": "arn:aws:s3:::YOUR_DASHBOARD_BUCKET/index.html"
+      "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/index.html"
     }
   ]
 }
