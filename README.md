@@ -12,6 +12,8 @@ An automated AWS cost-monitoring solution that analyzes spending with AWS Cost E
 
 Unexpected cloud charges can be difficult to detect when billing data is checked manually. This project automates the reporting process and makes recent cost changes easier to review.
 
+This project was built and tested for learning purposes. The AWS resources used for testing have since been deleted.
+
 The Lambda function:
 
 1. Retrieves unblended costs grouped by AWS service.
