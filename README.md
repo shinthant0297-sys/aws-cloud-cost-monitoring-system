@@ -22,7 +22,7 @@ The Lambda function:
 4. Generates an HTML dashboard and uploads it to Amazon S3.
 5. Publishes a weekly summary to an SNS topic.
 
-AWS Budgets provides separate threshold alerts at 50%, 80%, and 100% of the monthly budget.
+AWS Budgets sends alerts when actual spending exceeds 50% or 80% of the monthly budget, or when forecasted spending exceeds 100%.
 
 ## Architecture
 
