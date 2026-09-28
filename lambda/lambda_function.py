@@ -379,10 +379,13 @@ def generate_dashboard_html(
         f"to {(dates['previous_end'] - timedelta(days=1)).isoformat()}"
     )
 
-    monthly_period = (
-        f"{dates['month_start'].isoformat()} "
-        f"to {(dates['month_end'] - timedelta(days=1)).isoformat()}"
-    )
+        if dates["month_start"] == dates["month_end"]:
+        monthly_period = "No completed days in the current month yet"
+    else:
+        monthly_period = (
+            f"{dates['month_start'].isoformat()} "
+            f"to {(dates['month_end'] - timedelta(days=1)).isoformat()}"
+        )
 
     weekly_difference = (
         current_cost["total"]
