@@ -8,11 +8,12 @@ This document describes the architecture of the **AWS Cloud Cost Monitoring and 
 flowchart TD
     EB["Amazon EventBridge Scheduler"] -->|Scheduled invocation| LF["AWS Lambda"]
     LF -->|Get cost data| CE["AWS Cost Explorer"]
-    LF -->|Publish report| SNS["Amazon SNS"]
-    SNS -->|Email notification| USER["Subscriber"]
+    LF -->|Publish weekly report| SNS["Amazon SNS"]
     LF -->|Upload index.html| S3["Amazon S3"]
-    S3 -->|Static website| DASH["Cost Dashboard"]
     LF -->|Execution logs| CW["Amazon CloudWatch Logs"]
+    B["AWS Budgets"] -->|Budget alert| SNS
+    SNS -->|Email notification| USER["Subscriber"]
+    S3 -->|Static website| DASH["Cost Dashboard"]
 ```
 ## Architecture Diagram
 
