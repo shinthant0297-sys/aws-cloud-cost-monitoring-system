@@ -51,7 +51,7 @@ flowchart TD
 | Amazon S3 | Stores the generated HTML dashboard and makes it available on the web |
 | Amazon SNS | Sends weekly reports and budget notifications by email |
 | Amazon EventBridge Scheduler | Automatically invokes the Lambda function at a scheduled time every week |
-| AWS Budgets | Monitors monthly budget usage and sends notifications when usage exceeds 50%, 80%, or 100% |
+| AWS Budgets | Sends alerts when actual spending exceeds 50% or 80% of the monthly budget, or forecasted spending exceeds 100% |
 | Amazon CloudWatch Logs | Stores Lambda execution logs for checking system activity and errors |
 | AWS Identity and Access Management (IAM) | Grants Lambda and EventBridge Scheduler only the permissions required for their tasks |
 
@@ -203,7 +203,7 @@ Additional configuration evidence is available in the service-specific folders u
 - The generated dashboard was uploaded to S3.
 - EventBridge Scheduler invoked the Lambda function.
 - SNS delivered the weekly cost report by email.
-- AWS Budgets was configured with 50%, 80%, and 100% thresholds.
+- AWS Budgets was configured with actual-cost alerts at 50% and 80%, and a forecasted-cost alert at 100%.
 
 ## Security Notes and Future Improvements
 
